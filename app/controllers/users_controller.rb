@@ -3,6 +3,10 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+
+  def index
+    @users = User.all
+  end
   
   def show
     @user = User.find(params[:id])
@@ -40,6 +44,6 @@ class UsersController < ApplicationController
 
   def flash_status_messages
     flash[:notice] = "Your account was successfully updated"
-    redirect_to articles_path
+    redirect_to @user
   end
 end
